@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\UserNameController::class, 'index'])->name('username');
+Route::get('/', [App\Http\Controllers\UserNameController::class, 'show'])->name('all-data');
+Route::get('/username', [App\Http\Controllers\UserNameController::class, 'index'])->name('username');
 Route::post('/submit-data', [App\Http\Controllers\UserNameController::class, 'generate_string'])->name('submit-data');
 
 

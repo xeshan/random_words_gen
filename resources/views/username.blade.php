@@ -36,8 +36,7 @@
             		<select class="form-control" id="inputNumber" name="inputNumber" required >
                   		<option value="1">1</option>        
                   		<option value="100" selected>100</option>        
-                  		<option value="1000">1000</option>
-                  		<option value="10000">10,000</option>        
+                  		<option value="500">500</option>
               		</select>
         		</div>
         		<button type="submit" class="btn btn-primary float-end">Submit</button>

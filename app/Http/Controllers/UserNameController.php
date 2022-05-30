@@ -34,7 +34,7 @@ class UserNameController extends Controller
         }
         $characters = implode($word_range);
         $length = strlen($characters);
-        $word_length = 4;
+        $word_length = 6;
         $random_string = '';
         for ($i = 0; $i < $request->inputNumber * $word_length; $i++) {
             $random_string .= $characters[rand(0, $length - 1)];
@@ -44,7 +44,7 @@ class UserNameController extends Controller
 
         $this->store($name,$random_string);
 
-        return redirect()->route('username')->with('message','Data Enter Successfully');
+        return redirect()->route('all-data')->with('message','Data Enter Successfully');
 
     }
     /**
@@ -56,7 +56,7 @@ class UserNameController extends Controller
     public function store($name, $random_string)
     {
         
-        $split_string = str_split($random_string, 4);
+        $split_string = str_split($random_string, 6);
         
         $count = count($split_string);
         
@@ -74,6 +74,23 @@ class UserNameController extends Controller
 
         }
         
+    }
+    public static function UserDetail($id)
+    {
+
+        $random_words = UserDetail::where('user_name_id', $id)->get();
+        
+        return $random_words;
+    }
+
+    public function show()
+    {
+        
+        $user_name_data = UserName::all();
+        
+        $data = UserDetail::all();
+        
+        return view('all-data',compact('data','user_name_data'));
     }
 
 
